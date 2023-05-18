@@ -8,7 +8,12 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemberService { // 서비스는 비즈니스에 가까운 용어를 사용해야 한다.
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        // 의존성 주입을 위한 설정
+        this.memberRepository = memberRepository;
+    }
 
     /**
      * 회원 가입
